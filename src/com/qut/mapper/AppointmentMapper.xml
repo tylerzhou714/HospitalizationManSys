@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qut.mapper.AppointmentMapper">
+    <insert id="saveAppointment" parameterType="com.qut.pojo.Appointment">
+        insert into
+        appointment(patient_id, doctor_id, appointment_date, appointment_time, status)
+        values
+        (#{id}, #{patient_id}, #{doctor_id}, #{appointment_date}, #{appointment_time}, #{status})
+    </insert>
+    <update id="updateAppointment" parameterType="com.qut.pojo.Appointment">
+        update
+        appointment
+        set
+        status = #{status}
+    </update>
+    <select id="findAppointment" parameterType="com.qut.pojo.Appointment">
+        select
+        *
+        from
+        appointment
+        where
+        patient_id=#{id}
+    </select>
+</mapper>
