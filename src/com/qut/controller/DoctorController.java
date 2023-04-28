@@ -165,4 +165,12 @@ public class DoctorController {
 		String temp="temp";
 		return temp ;
 	}
+
+	@RequestMapping(value = "/schedule.do", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String doctor_schedule(@Param("id") Integer id, @Param("name") String name,
+								 @Param("keshi") Integer keshi, @Param("zhicheng") Integer zhicheng, @Param("gender") Integer gender) {
+		String temp="temp";
+		return temp ;
+	}
 }

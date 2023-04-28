@@ -225,6 +225,8 @@
 							style="display: none;">医生录入</a></li>
 						<li><a href="doctor-find.jsp" target="iframe" id="yscx"
 							style="display: none;">医生查询</a></li>
+						<li><a href="doctor_schedule.jsp" target="iframe" id="yspb"
+							   style="display: none;">医生排班</a></li>
 					</ul></li>
 
 				<li id="guahaoguanli" style="display: none;"><a href="#10"

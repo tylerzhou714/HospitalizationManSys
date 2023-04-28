@@ -10,7 +10,7 @@ import java.util.Date;
 public class Appointment implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
-    private Integer patient_id;
+    private String patient_id;
     private Integer doctor_id;
     private Date appointment_date;
     private Date appointment_time;
@@ -24,11 +24,11 @@ public class Appointment implements Serializable {
         this.id = id;
     }
 
-    public Integer getPatient_id() {
+    public String getPatient_id() {
         return patient_id;
     }
 
-    public void setPatient_id(Integer patient_id) {
+    public void setPatient_id(String patient_id) {
         this.patient_id = patient_id;
     }
 

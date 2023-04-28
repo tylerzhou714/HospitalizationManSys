@@ -473,5 +473,8 @@
     <orderEntry type="library" name="jspdf" level="application" />
     <orderEntry type="library" name="simplemde" level="application" />
     <orderEntry type="library" name="jquery-3.6.0" level="application" />
+    <orderEntry type="library" name="popper.js" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

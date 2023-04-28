@@ -147,6 +147,7 @@ $(function() {
 		$("#yishengguanli").css("display", "");
 		$("#yslr").css("display", "");
 		$("#yscx").css("display", "");
+		$("#yspb").css("display", "");
 		$("#guahaoguanli").css("display", "");
 		$("#djgh").css("display", "");
 		$("#ckyy").css("display", "");
