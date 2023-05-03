@@ -1,25 +1,21 @@
 package com.qut.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+
+import com.qut.pojo.*;
+import com.qut.service.*;
 import org.apache.ibatis.annotations.Param;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.qut.pojo.Common;
-import com.qut.pojo.Ward;
-import com.qut.pojo.PatientCode;
-import com.qut.pojo.DoctorCode;
-import com.qut.pojo.Doctor;
-import com.qut.pojo.Parameter;
-import com.qut.service.CommonService;
-import com.qut.service.DoctorService;
-import com.qut.service.PatientService;
-import com.qut.service.WardService;
 import com.qut.util.JsonResult;
 import com.qut.util.Log4jLogsDetial;
 import net.sf.json.JSON;
@@ -36,7 +32,28 @@ public class CommonController {
 	private PatientService patientService;
 	@Resource(name = "wardService")
 	private WardService wardService;
+	@Resource(name="scheduleService")
+	private ScheduleService scheduleService;
+
 	Logger log = Logger.getLogger(Log4jLogsDetial.class);
+	@RequestMapping(value = "/schedule.do", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String scheduleSave(@Param("doctorId")Integer doctorId, @Param("date") Date date,
+							   @Param("time_slot")String time_slot, @Param("quota")Integer quota)throws ParseException {
+		Schedule schedule = new Schedule();
+		if (!(date == null)) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date appintmentTime = (Date) sdf.parse(String.valueOf(date));
+			schedule.setDate(appintmentTime);
+		}
+		schedule.setDoctorId(doctorId);
+		schedule.setTimeSlot(time_slot);
+		schedule.setQuota(quota);
+		scheduleService.scheduleSave(schedule);
+		log.info("新增排班" + schedule.getDoctorId());
+		JSON json = JSONSerializer.toJSON(new JsonResult<Schedule>(schedule));
+		return json.toString();
+	}
 
 	@RequestMapping(value = "/list.do", produces = "application/json;charset=utf-8")
 	@ResponseBody

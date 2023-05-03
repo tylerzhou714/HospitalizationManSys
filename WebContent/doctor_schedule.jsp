@@ -104,6 +104,39 @@
         $("#select_zhicheng").change(loadDoctors);
     });
 
+    $("#save").click(saveSchedule);
+
+    function saveSchedule() {
+        var doctorId = $("#select_doctorName").val();
+        var date = $("#date").val();
+        var timeSlot = $("#morning_schedule").val() || $("#afternoon_schedule").val();
+        var quota = $("#morning_quota").val() || $("#afternoon_quota").val();
+
+        $.ajax({
+            type: "POST",
+            url: "common/schedule.do",
+            data: JSON.stringify({
+                doctorId: doctorId,
+                date: date,
+                time_slot: timeSlot,
+                quota: quota
+            }),
+            contentType:'application/json;charset=UTF-8',
+            success: function (response) {
+                if (response.success) {
+                    alert("排班信息已保存");
+                    // 更新页面或跳转到其他页面
+                } else {
+                    alert("保存排班信息失败");
+                }
+            },
+            error: function (error) {
+                console.log(error);
+                alert("请求失败，请稍后重试");
+            }
+        });
+    }
+
     // 加载科室信息
     function loadDepartments() {
         $.ajax({
