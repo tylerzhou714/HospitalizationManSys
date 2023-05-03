@@ -21,6 +21,9 @@ $(function() {
 		$("#tzsjcx").css("display", "");
 		$("#zyls").css("display", "");
 		$("#yyls").css("display", "");
+		$("#guahaoguanli").css("display", "");
+		$("#djgh").css("display", "");
+		$("#ckyy").css("display", "");
 		$("#gangwei").text("[患者]");
 	}
 
@@ -62,6 +65,11 @@ $(function() {
 		$("#tongjizhongxin").css("display", "");
 		$("#brtj").css("display", "");
 		$("#bftj").css("display", "");
+		$("#menzhenguanli").css("display", "");
+		$("#blgl").css("display", "");
+		$("#yygl").css("display", "");
+		$("#hzgl").css("display", "");
+		$("#jykd").css("display", "");
 		$("#gangwei").text("[医生]");
 	}
 
@@ -92,6 +100,7 @@ $(function() {
 		$("#bingfangguanli").css("display", "");
 		$("#xzbf").css("display", "");
 		$("#bfjgtz").css("display", "");
+		$("#bfcx").css("display", "");
 		$("#yaopinguanli").css("display", "");
 		$("#yprk").css("display", "");
 		$("#rkcx").css("display", "");
@@ -119,6 +128,7 @@ $(function() {
 		$("#bingfangguanli").css("display", "");
 		$("#xzbf").css("display", "");
 		$("#bfjgtz").css("display", "");
+		$("#bfcx").css("display", "");
 		$("#yaopinguanli").css("display", "");
 		$("#yprk").css("display", "");
 		$("#ypff").css("display", "");
@@ -154,6 +164,8 @@ $(function() {
 		$("#menzhenguanli").css("display", "");
 		$("#blgl").css("display", "");
 		$("#yygl").css("display", "");
+		$("#hzgl").css("display", "");
+		$("#jykd").css("display", "");
 		$("#canshushezhi").css("display", "");
 		$("#cssz").css("display", "");
 		$("#yxrz").css("display", "");

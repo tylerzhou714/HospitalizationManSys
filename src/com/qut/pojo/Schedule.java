@@ -3,6 +3,10 @@ package com.qut.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 医生排班表封装类
+ */
+
 public class Schedule implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;

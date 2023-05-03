@@ -139,6 +139,8 @@
 							style="display: none;">新置病房</a></li>
 						<li><a href="ward-price_modify.jsp" target="iframe"
 							id="bfjgtz" style="display: none;">病房价格调整</a></li>
+						<li><a href="ward_query.jsp" target="iframe"
+							   id="bfcx" style="display: none;">病房查询</a></li>
 					</ul></li>
 
 
@@ -249,8 +251,10 @@
 							   style="display: none;">病历管理</a></li>
 						<li><a href="doctor-Diagnosis.jsp" target="iframe" id="yygl"
 							   style="display: none;">预约管理</a></li>
-						<li><a href="doctor-consultation.jsp" target="iframe" id="yygl"
+						<li><a href="doctor-consultation.jsp" target="iframe" id="hzgl"
 							   style="display: none;">会诊管理</a></li>
+						<li><a href="labOrder.jsp" target="iframe" id="jykd"
+							   style="display: none;">检验开单</a></li>
 					</ul></li>
 
 				<li id="canshushezhi" style="display: none;"><a href="#0"
