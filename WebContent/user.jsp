@@ -227,30 +227,15 @@
 							style="display: none;">医生录入</a></li>
 						<li><a href="doctor-find.jsp" target="iframe" id="yscx"
 							style="display: none;">医生查询</a></li>
-						<li><a href="doctor_schedule.jsp" target="iframe" id="yspb"
-							   style="display: none;">医生排班</a></li>
-					</ul></li>
-
-				<li id="guahaoguanli" style="display: none;"><a href="#10"
-														aria-expanded="false" data-toggle="collapse"> <i
-						class="icon-check"></i>挂号管理
-				</a>
-					<ul id="10" class="collapse list-unstyled">
-						<li><a href="user-book.jsp" target="iframe" id="djgh"
-							   style="display: none;">预约挂号</a></li>
-						<li><a href="book_detail.jsp" target="iframe" id="ckyy"
-							   style="display: none;">查看预约</a></li>
 					</ul></li>
 
 				<li id="menzhenguanli" style="display: none;"><a href="#11"
 																aria-expanded="false" data-toggle="collapse"> <i
-						class="icon-check"></i>门诊管理
+						class="icon-check"></i>住院管理
 				</a>
 					<ul id="11" class="collapse list-unstyled">
 						<li><a href="record.jsp" target="iframe" id="blgl"
 							   style="display: none;">病历管理</a></li>
-						<li><a href="doctor-Diagnosis.jsp" target="iframe" id="yygl"
-							   style="display: none;">预约管理</a></li>
 						<li><a href="doctor-consultation.jsp" target="iframe" id="hzgl"
 							   style="display: none;">会诊管理</a></li>
 						<li><a href="labOrder.jsp" target="iframe" id="jykd"

@@ -157,13 +157,8 @@ $(function() {
 		$("#yishengguanli").css("display", "");
 		$("#yslr").css("display", "");
 		$("#yscx").css("display", "");
-		$("#yspb").css("display", "");
-		$("#guahaoguanli").css("display", "");
-		$("#djgh").css("display", "");
-		$("#ckyy").css("display", "");
 		$("#menzhenguanli").css("display", "");
 		$("#blgl").css("display", "");
-		$("#yygl").css("display", "");
 		$("#hzgl").css("display", "");
 		$("#jykd").css("display", "");
 		$("#canshushezhi").css("display", "");
