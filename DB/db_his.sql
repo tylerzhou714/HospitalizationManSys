@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql8
+ Source Server         : localhost
  Source Server Type    : MySQL
  Source Server Version : 80033
  Source Host           : localhost:3306
@@ -11,29 +11,11 @@
  Target Server Version : 80033
  File Encoding         : 65001
 
- Date: 03/05/2023 21:20:36
+ Date: 07/05/2023 14:55:22
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for appointment
--- ----------------------------
-DROP TABLE IF EXISTS `appointment`;
-CREATE TABLE `appointment`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `patient_id` int NOT NULL,
-  `doctor_id` int NOT NULL,
-  `appointment_date` date NOT NULL,
-  `appointment_time` time NOT NULL,
-  `status` int NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of appointment
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for bed
@@ -45,7 +27,7 @@ CREATE TABLE `bed`  (
   `bedNo` int NULL DEFAULT NULL,
   `state` int NULL DEFAULT NULL,
   PRIMARY KEY (`bedId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 306 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 305 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of bed
@@ -112,7 +94,7 @@ CREATE TABLE `category`  (
   `price` float NULL DEFAULT 0,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of category
@@ -155,7 +137,7 @@ CREATE TABLE `doctor`  (
   `working_time` date NULL DEFAULT NULL,
   `state` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`doctorId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of doctor
@@ -176,43 +158,6 @@ INSERT INTO `doctor` VALUES (000038, 1, 7, '刘玉峰', 2, '2018-05-09', 0);
 INSERT INTO `doctor` VALUES (000039, 1, 10, '邢枭龙', 4, '2017-07-10', 0);
 
 -- ----------------------------
--- Table structure for doctor_schedule
--- ----------------------------
-DROP TABLE IF EXISTS `doctor_schedule`;
-CREATE TABLE `doctor_schedule`  (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `doctorId` int(6) UNSIGNED ZEROFILL NOT NULL,
-  `date` date NOT NULL,
-  `time_slot` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `quota` int NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `doctorId`(`doctorId`) USING BTREE,
-  CONSTRAINT `doctor_schedule_ibfk_1` FOREIGN KEY (`doctorId`) REFERENCES `doctor` (`doctorId`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of doctor_schedule
--- ----------------------------
-INSERT INTO `doctor_schedule` VALUES (1, 000026, '2023-04-27', '8:00-8:40', 5);
-INSERT INTO `doctor_schedule` VALUES (2, 000026, '2023-04-27', '8:50-9:30', 5);
-INSERT INTO `doctor_schedule` VALUES (3, 000026, '2023-04-27', '9:40-10:20', 5);
-INSERT INTO `doctor_schedule` VALUES (4, 000026, '2023-04-27', '10:30-11:10', 5);
-INSERT INTO `doctor_schedule` VALUES (5, 000026, '2023-04-27', '11:20-12:00', 5);
-INSERT INTO `doctor_schedule` VALUES (6, 000026, '2023-04-27', '13:30-14:10', 4);
-INSERT INTO `doctor_schedule` VALUES (7, 000026, '2023-04-27', '14:20-15:00', 4);
-INSERT INTO `doctor_schedule` VALUES (8, 000026, '2023-04-27', '15:10-15:50', 4);
-INSERT INTO `doctor_schedule` VALUES (9, 000026, '2023-04-27', '16:00-16:40', 4);
-INSERT INTO `doctor_schedule` VALUES (10, 000027, '2023-04-27', '8:00-8:40', 5);
-INSERT INTO `doctor_schedule` VALUES (11, 000027, '2023-04-27', '8:50-9:30', 5);
-INSERT INTO `doctor_schedule` VALUES (12, 000027, '2023-04-27', '9:40-10:20', 5);
-INSERT INTO `doctor_schedule` VALUES (13, 000027, '2023-04-27', '10:30-11:10', 5);
-INSERT INTO `doctor_schedule` VALUES (14, 000027, '2023-04-27', '11:20-12:00', 5);
-INSERT INTO `doctor_schedule` VALUES (15, 000027, '2023-04-27', '13:30-14:10', 4);
-INSERT INTO `doctor_schedule` VALUES (16, 000027, '2023-04-27', '14:20-15:00', 4);
-INSERT INTO `doctor_schedule` VALUES (17, 000027, '2023-04-27', '15:10-15:50', 4);
-INSERT INTO `doctor_schedule` VALUES (18, 000027, '2023-04-27', '16:00-16:40', 4);
-
--- ----------------------------
 -- Table structure for drug
 -- ----------------------------
 DROP TABLE IF EXISTS `drug`;
@@ -231,7 +176,7 @@ CREATE TABLE `drug`  (
   `productionTime` date NULL DEFAULT NULL,
   `validityTime` date NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of drug
@@ -264,7 +209,7 @@ CREATE TABLE `grantdrug`  (
   `grantUserName` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `grantTime` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of grantdrug
@@ -277,28 +222,6 @@ INSERT INTO `grantdrug` VALUES (0000000035, 'Z0006', '吡贝地尔缓释片', 76
 INSERT INTO `grantdrug` VALUES (0000000036, 'Z1234', '强力枇杷露', 47.64, 3, '丁子彧', '1556762747114', 'admin', '超级管理员', '2019-05-23 13:17:10');
 
 -- ----------------------------
--- Table structure for lab_orders
--- ----------------------------
-DROP TABLE IF EXISTS `lab_orders`;
-CREATE TABLE `lab_orders`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `outpatient_id` int NOT NULL,
-  `patient_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `lab_test` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `test_notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `create_time` datetime NOT NULL,
-  `update_time` datetime NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `outpatient_id`(`outpatient_id`) USING BTREE,
-  CONSTRAINT `lab_orders_ibfk_1` FOREIGN KEY (`outpatient_id`) REFERENCES `appointment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of lab_orders
--- ----------------------------
-
--- ----------------------------
 -- Table structure for log
 -- ----------------------------
 DROP TABLE IF EXISTS `log`;
@@ -308,10 +231,30 @@ CREATE TABLE `log`  (
   `type` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `detial` varchar(10240) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of log
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for medicalrecord
+-- ----------------------------
+DROP TABLE IF EXISTS `medicalrecord`;
+CREATE TABLE `medicalrecord`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `patient_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `patient_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `bed_no` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `diagnosis` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `treatment_plan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `medication` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of medicalrecord
 -- ----------------------------
 
 -- ----------------------------
@@ -394,7 +337,7 @@ CREATE TABLE `paracode`  (
   `parameter_values` int NOT NULL,
   `parameter_name` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   PRIMARY KEY (`code_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 138 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of paracode
@@ -464,7 +407,7 @@ CREATE TABLE `parameter`  (
   `code` varchar(6) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `name` varchar(12) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   PRIMARY KEY (`parameter_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of parameter
@@ -505,7 +448,7 @@ CREATE TABLE `patient`  (
   `leaveState` int NULL DEFAULT 0,
   `leaveTime` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of patient
@@ -516,43 +459,6 @@ INSERT INTO `patient` VALUES (00000000046, '1556262004947', '王梓桐', 2, 6, '
 INSERT INTO `patient` VALUES (00000000047, '1556762747114', '丁子彧', 2, 1, '1997-02-05', 1, '372502197702051212', '中国海洋大学', 0, 27, '2019-05-02 10:05:47', '山东聊城', '', '丁凡', '13798234312', 1, 3, 103, 10301, 0, 0, 0, NULL);
 INSERT INTO `patient` VALUES (00000000048, '1557287431528', '王大拿', 1, 1, '2018-01-03', 4, '372323197702011234', '', 0, 34, '2019-05-08 11:50:31', '呼伦贝厄', '', '王晓娜', '17865432121', 1, 2, 402, 40201, 0, 0, 0, NULL);
 INSERT INTO `patient` VALUES (00000000049, '1558535901290', 'MD5测试', 2, 2, '2019-05-21', 2, '372312201905211234', '', 0, 31, '2019-05-22 22:38:21', '黄岛', '', 'MD4', '13123231234', 1, 2, 202, 20201, 0, 1, 1, '2019-05-23 13:01:35');
-
--- ----------------------------
--- Table structure for queue
--- ----------------------------
-DROP TABLE IF EXISTS `queue`;
-CREATE TABLE `queue`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `appointment_id` int NOT NULL,
-  `queue_number` int NOT NULL,
-  `status` int NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of queue
--- ----------------------------
-
--- ----------------------------
--- Table structure for record
--- ----------------------------
-DROP TABLE IF EXISTS `record`;
-CREATE TABLE `record`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `patient_id` int NOT NULL,
-  `doctor_id` int NOT NULL,
-  `department_id` int NOT NULL,
-  `visit_date` date NOT NULL,
-  `symptoms` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `diagnosis` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `prescription` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of record
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for sign
@@ -573,7 +479,7 @@ CREATE TABLE `sign`  (
   `bloodSugar` float NULL DEFAULT 0,
   `vein` float NULL DEFAULT 0,
   PRIMARY KEY (`signId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sign
@@ -607,7 +513,7 @@ CREATE TABLE `stock`  (
   `price` float NULL DEFAULT NULL,
   `count` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of stock
@@ -663,7 +569,7 @@ CREATE TABLE `ward`  (
   `state` int NULL DEFAULT NULL,
   `createTime` date NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 97 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of ward
@@ -739,7 +645,7 @@ CREATE TABLE `withdrawal`  (
   `entiyTime` date NULL DEFAULT NULL,
   `reason` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of withdrawal
