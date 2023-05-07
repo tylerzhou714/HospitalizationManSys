@@ -1,9 +1,9 @@
-﻿//病人体征数据录入js
+﻿//病人电子病历录入js
 $(function() {
     $("#patientId").click(selectPatient);
     $(".clear").click(clear);
     $(".confirm").click(save);
-    $("#measureTime").val(getNowAllFormatDate());
+    $("#createTime").val(getNowAllFormatDate());
 });
 
 $(function() {
@@ -47,85 +47,30 @@ $(function() {
 
 // 保存按钮
 function save() {
-    /**
-     * 预校验
-     */
     if ($("#patientId").val() == "") {
         alert("住院编号不能为空！");
         $("#patientId").click();
         return false;
     }
-    if ($("#measureTime").val() == "") {
+    if ($("#createTime").val() == "") {
         alert("时间不能为空!");
-        $("#measureTime").click();
-        return false;
-    }
-    if ($("#temperature").val() == "" && $("#pulse").val() == ""
-        && $("#bloodPressure").val() == "" && $("#bloodSugar").val() == "") {
-        alert("请至少输入一项体征数据!");
+        $("#createTime").click();
         return false;
     }
 
-    /**
-     * 数据合法性校验
-     */
-    if ($("#temperature").val() > 45 || $("#temperature").val() < 33
-        && $("#temperature").val() != 0) {
-        alert("体温数据错误,建议体温区间[33,45]");
-        return false;
-    }
-    if ($("#pulse").val() > 250 || $("#pulse").val() < 0) {
-        alert("心率数据错误,建议心率区间[0,250]");
-        return false;
-    }
-    if ($("#bloodSugar").val() > 30 || $("#pulse").val() < 0) {
-        alert("血糖数据错误,建议血糖区间[0,20]");
-        return false;
-    }
-    var bloodPress = $("#bloodPressure").val();
-    if (bloodPress.indexOf("/") == -1) {
-        alert("血压格式不正确,建议录入格式:舒张压/收缩压");
-        return false;
-    }
-    var array = new Array();
-    array = bloodPress.split("/");
-    if (array[0] < 0 || array[0] > 250 || array[1] < 0 || array[1] > 300) {
-        alert("血压值不正确!");
-        return false;
-    }
-
-    /**
-     * 空值自动填充
-     */
-    if ($("#temperature").val() == "") {
-        $("#temperature").val("0");
-    }
-    if ($("#pulse").val() == "") {
-        $("#pulse").val("0");
-    }
-    if ($("#bloodPressure").val() == "") {
-        $("#bloodPressure").val("0/0");
-    }
-    if ($("#bloodSugar").val() == "") {
-        $("#bloodSugar").val("0");
-    }
-
-    /**
-     * 发送数据
-     */
-    var saveData = $("#signEntry").serialize();
+    var saveData = $("#medicalRecordEntry").serialize();
     $.ajax({
-        url : "sign/signSave.do",
-        data : saveData,
-        dataType : "json",
-        type : "POST",
-        success : function(result) {
+        url: "record/recordSave.do",
+        data: saveData,
+        dataType: "json",
+        type: "POST",
+        success: function (result) {
             if (result.state == 0) {
                 alert("录入成功！");
             }
             window.location.reload();
         },
-        error : function(result) {
+        error: function (result) {
             alert("录入失败");
             window.location.reload();
         }

@@ -67,7 +67,6 @@ $(function() {
 		$("#bftj").css("display", "");
 		$("#menzhenguanli").css("display", "");
 		$("#blgl").css("display", "");
-		$("#yygl").css("display", "");
 		$("#hzgl").css("display", "");
 		$("#jykd").css("display", "");
 		$("#gangwei").text("[医生]");

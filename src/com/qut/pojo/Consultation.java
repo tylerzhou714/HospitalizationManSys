@@ -4,18 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 病历封装类
+ * 会诊封装表
+ *
  */
-public class MedicalRecord implements Serializable {
+public class Consultation implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String patientId;
     private String patientName;
     private String bedNo;
+    private String consultingDoctor;
     private String diagnosis;
-    private String treatmentPlan;
-    private String medication;
-    private String remarks;
     private Date createTime;
     private Date updateTime;
 
@@ -51,36 +50,20 @@ public class MedicalRecord implements Serializable {
         this.bedNo = bedNo;
     }
 
+    public String getConsultingDoctor() {
+        return consultingDoctor;
+    }
+
+    public void setConsultingDoctor(String consultingDoctor) {
+        this.consultingDoctor = consultingDoctor;
+    }
+
     public String getDiagnosis() {
         return diagnosis;
     }
 
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
-    }
-
-    public String getTreatmentPlan() {
-        return treatmentPlan;
-    }
-
-    public void setTreatmentPlan(String treatmentPlan) {
-        this.treatmentPlan = treatmentPlan;
-    }
-
-    public String getMedication() {
-        return medication;
-    }
-
-    public void setMedication(String medication) {
-        this.medication = medication;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
     }
 
     public Date getCreateTime() {
@@ -101,15 +84,13 @@ public class MedicalRecord implements Serializable {
 
     @Override
     public String toString() {
-        return "MedicalRecord{" +
+        return "consultation{" +
                 "id=" + id +
                 ", patientId='" + patientId + '\'' +
                 ", patientName='" + patientName + '\'' +
                 ", bedNo='" + bedNo + '\'' +
+                ", consultingDoctor='" + consultingDoctor + '\'' +
                 ", diagnosis='" + diagnosis + '\'' +
-                ", treatmentPlan='" + treatmentPlan + '\'' +
-                ", medication='" + medication + '\'' +
-                ", remarks='" + remarks + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';

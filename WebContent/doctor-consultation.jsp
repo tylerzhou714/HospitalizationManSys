@@ -39,6 +39,10 @@
             <textarea placeholder="诊断意见" name="diagnosisSuggestion" id="diagnosisSuggestion"></textarea>
         </p>
     </div>
+
+    <input type="hidden" id="createTime" name="createTime"
+           readonly="readonly" placeholder="诊断时间" />
+
     <div class="btn ue-clear">
         <a href="javascript:;" class="confirm">保存</a> <a href="javascript:;"
                                                          class="clear">重置</a>

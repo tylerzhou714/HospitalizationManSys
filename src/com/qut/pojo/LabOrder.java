@@ -3,16 +3,20 @@ package com.qut.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+
+/**
+ * 检验单封装类
+ */
 public class LabOrder implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
-    private Integer outpatient_id;
-    private String patient_name;
-    private String lab_test;
-    private String test_notes;
-    private String status;
-    private Date create_time;
-    private Date update_time;
+    private String patientId;
+    private String patientName;
+    private String bedNo;
+    private String items;
+    private String DoctorName;
+    private Date createTime;
+    private Date updateTime;
 
     public Integer getId() {
         return id;
@@ -22,73 +26,73 @@ public class LabOrder implements Serializable {
         this.id = id;
     }
 
-    public Integer getOutpatient_id() {
-        return outpatient_id;
+    public String getPatientId() {
+        return patientId;
     }
 
-    public void setOutpatient_id(Integer outpatient_id) {
-        this.outpatient_id = outpatient_id;
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
 
-    public String getPatient_name() {
-        return patient_name;
+    public String getPatientName() {
+        return patientName;
     }
 
-    public void setPatient_name(String patient_name) {
-        this.patient_name = patient_name;
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
     }
 
-    public String getLab_test() {
-        return lab_test;
+    public String getBedNo() {
+        return bedNo;
     }
 
-    public void setLab_test(String lab_test) {
-        this.lab_test = lab_test;
+    public void setBedNo(String bedNo) {
+        this.bedNo = bedNo;
     }
 
-    public String getTest_notes() {
-        return test_notes;
+    public String getItems() {
+        return items;
     }
 
-    public void setTest_notes(String test_notes) {
-        this.test_notes = test_notes;
+    public void setItems(String items) {
+        this.items = items;
     }
 
-    public String getStatus() {
-        return status;
+    public String getDoctorName() {
+        return DoctorName;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDoctorName(String doctorName) {
+        DoctorName = doctorName;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     @Override
     public String toString() {
         return "LabOrder{" +
                 "id=" + id +
-                ", outpatient_id=" + outpatient_id +
-                ", patient_name='" + patient_name + '\'' +
-                ", lab_test='" + lab_test + '\'' +
-                ", test_notes='" + test_notes + '\'' +
-                ", status='" + status + '\'' +
-                ", create_time=" + create_time +
-                ", update_time=" + update_time +
+                ", patientId='" + patientId + '\'' +
+                ", patientName='" + patientName + '\'' +
+                ", bedNo='" + bedNo + '\'' +
+                ", items='" + items + '\'' +
+                ", DoctorName='" + DoctorName + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
                 '}';
     }
 }

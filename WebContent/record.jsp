@@ -26,6 +26,10 @@
             <label>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</label> <input id="patientName"
                                                               name="patientName" readonly type="text" placeholder="姓名" />
         </p>
+
+        <input type="hidden" id="createTime" name="createTime"
+               readonly="readonly" placeholder="诊断时间" />
+
         <p class="short-input ue-clear">
             <label>床位号：</label> <input type="text" id="bedNo" name="bedNo"
                                        readonly placeholder="床位号" />

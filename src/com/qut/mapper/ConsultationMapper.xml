@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qut.mapper.ConsultationMapper">
+    <!-- 保存病人体征信息 -->
+    <insert id="consultationSave" parameterType="com.qut.pojo.Consultation">
+        insert into
+            consultation(patient_id, patient_name, bed_no, consulting_doctors, diagnosis_suggestion, create_time, update_time)
+        values(#{patientId},#{patientName},#{bedNo},#{consultingDoctor},#{diagnosis}, #{createTime}, #{updateTime})
+    </insert>
+</mapper>

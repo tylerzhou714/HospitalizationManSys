@@ -1,10 +1,28 @@
-﻿//病人体征数据录入js
+﻿//病人检验单录入js
 $(function() {
     $("#patientId").click(selectPatient);
     $(".clear").click(clear);
     $(".confirm").click(save);
     $("#createTime").val(getNowAllFormatDate());
 });
+
+$(document).ready(function() {
+    var username = getCookie("user").split("#")[1];
+    username = decodeURIComponent(username);
+    $("#requestingDoctor").val(username);
+});
+
+function getCookie(name) {
+    var cookies = document.cookie.split("; ");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].split("=");
+        if (cookie[0] == name) {
+            return cookie[1];
+        }
+    }
+    return null;
+}
+
 
 $(function() {
     /*
@@ -58,14 +76,14 @@ function save() {
         return false;
     }
 
-    var saveData = $("#consultationEntry").serialize();
+    var saveData = $("#labOrderEntry").serialize();
     $.ajax({
-        url: "consultation/consultationSave.do",
+        url: "LabOrder/LabOrderSave.do",
         data: saveData,
         dataType: "json",
         type: "POST",
         success: function (result) {
-            if (result.state == 0) {c
+            if (result.state == 0) {
                 alert("录入成功！");
             }
             window.location.reload();
