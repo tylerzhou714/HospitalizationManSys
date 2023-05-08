@@ -30,12 +30,13 @@ public class LabOrderController {
 
     @RequestMapping(value = "/LabOrderSave.do", produces = "application/json;charset=utf-8")
     @ResponseBody
-    public String labOrderSave(@Param("patientId") String patientId, @Param("patientName") String patientName,
+    public String labOrderSave(@Param("patientId") String patientId, @Param("patientName") String patientName, @Param("cerificateNo") String cerificateNo,
                              @Param("bedNo") String bedNo, @Param("requestingDoctor") String requestingDoctor, @Param("labTestItems") String labTestItems, HttpServletRequest request,
                              @Param("createTime") String createTime)
             throws ParseException, UnsupportedEncodingException {
         LabOrder labOrder = new LabOrder();
         labOrder.setPatientId(BaseUtils.toString(patientId));
+        labOrder.setCertificateNo(BaseUtils.toString(cerificateNo));
         labOrder.setPatientName(BaseUtils.toString(patientName));
         labOrder.setBedNo(BaseUtils.toString(bedNo));
         labOrder.setDoctorName(BaseUtils.toString(requestingDoctor));

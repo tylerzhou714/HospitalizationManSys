@@ -11,6 +11,7 @@ public class Consultation implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String patientId;
+    private String certificateNo;
     private String patientName;
     private String bedNo;
     private String consultingDoctor;
@@ -32,6 +33,14 @@ public class Consultation implements Serializable {
 
     public void setPatientId(String patientId) {
         this.patientId = patientId;
+    }
+
+    public String getCertificateNo() {
+        return certificateNo;
+    }
+
+    public void setCertificateNo(String certificateNo) {
+        this.certificateNo = certificateNo;
     }
 
     public String getPatientName() {
@@ -84,9 +93,10 @@ public class Consultation implements Serializable {
 
     @Override
     public String toString() {
-        return "consultation{" +
+        return "Consultation{" +
                 "id=" + id +
                 ", patientId='" + patientId + '\'' +
+                ", certificateNo='" + certificateNo + '\'' +
                 ", patientName='" + patientName + '\'' +
                 ", bedNo='" + bedNo + '\'' +
                 ", consultingDoctor='" + consultingDoctor + '\'' +

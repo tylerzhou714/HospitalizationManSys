@@ -91,11 +91,13 @@ function showList(lists, start, end) {
 			} else {
 				trStyle = "<tr style='cursor:pointer' onclick='jump(this);'>";
 			}
+			console.log(patient.cerificateNo)
 			var admissionTime = patient.admissionTime.substring(0,
 					patient.admissionTime.length - 2);
 			var $tr = trStyle + "<td class='num'>" + (i + 1) + "</td>"
-					+ "<td class='name'>" + patient.patientId + "</td>"
-					+ "<td class='time'>" + patient.name + "</td>"
+					+ "<td class='time'>" + patient.patientId + "</td>"
+					+ "<td class='process'>" + patient.name + "</td>"
+					+ "<td class='process'>" + patient.cerificateNo + "</td>"
 					+ "<td class='num'>" + gender + "</td>"
 					+ "<td class='node'>" + patient.departmentName + "</td>"
 					+ "<td class='num'>" + patient.roomNo + "</td>"
@@ -108,16 +110,18 @@ function showList(lists, start, end) {
 }
 
 function jump(obj) {
-	var id = $(obj).children().siblings().next().html();
-	var name = $(obj).children().next().next().html();
-	var bedNo = $(obj).children().next().next().next().next().next().next()
-			.html();
-	// console.log("bedNo:"+bedNo);
+	var $tds = $(obj).find('td');
+	var id = $tds.eq(1).html();
+	var name = $tds.eq(2).html();
+	var cerificateNo = $tds.eq(3).html();
+	var bedNo = $tds.eq(7).html();
+
 	var tiao = parent.window.$("#tiao").val();
 	$('#patientId', window.parent.document).val(id);
 	$('#patientName', window.parent.document).val(name);
 	$('#bedNo', window.parent.document).val(bedNo);
+	$('#cerificateNo', window.parent.document).val(cerificateNo);
 	window.location.reload();
 	parent.close();
-	/* parent.showMessage(); */
 }
+

@@ -6,8 +6,8 @@
     <!-- 保存病人体征信息 -->
     <insert id="labOrderSave" parameterType="com.qut.pojo.LabOrder">
         insert into
-            laborder(patient_id, patient_name, bed_no, items, doctor_name, create_time, update_time)
-        values(#{patientId},#{patientName},#{bedNo},#{items},#{DoctorName}, #{createTime}, #{updateTime})
+            laborder(patient_id, certificateNo, patient_name, bed_no, items, doctor_name, create_time, update_time)
+        values(#{patientId},#{certificateNo},#{patientName},#{bedNo},#{items},#{DoctorName}, #{createTime}, #{updateTime})
     </insert>
 
 </mapper>

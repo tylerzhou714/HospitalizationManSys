@@ -3,11 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qut.mapper.MedicalRecordMapper">
-    <!-- 保存病人体征信息 -->
+    <!-- 保存病人病历信息 -->
     <insert id="medicalRecordSave" parameterType="com.qut.pojo.MedicalRecord">
         insert into
-            medicalrecord(patient_id, patient_name, bed_no, diagnosis, treatment_plan, medication, remarks, create_time, update_time)
-        values(#{patientId},#{patientName},#{bedNo},#{diagnosis},#{treatmentPlan},#{medication},#{remarks}, #{createTime}, #{updateTime})
+            medicalrecord(patient_id, certificateNo,patient_name, bed_no, diagnosis, treatment_plan, medication, remarks, create_time, update_time)
+        values(#{patientId},#{certificateNo},#{patientName},#{bedNo},#{diagnosis},#{treatmentPlan},#{medication},#{remarks}, #{createTime}, #{updateTime})
     </insert>
+
+<!--    根据病人id查询病人病历信息-->
+    <select id="medicalRecordQueryByPatientId" parameterType="String" resultType="map">
+        select * from medicalrecord where certificateNo = #{certificateNo}
+    </select>
 
 </mapper>

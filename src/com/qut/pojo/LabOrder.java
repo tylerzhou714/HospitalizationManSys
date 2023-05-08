@@ -11,6 +11,7 @@ public class LabOrder implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String patientId;
+    private String certificateNo;
     private String patientName;
     private String bedNo;
     private String items;
@@ -28,6 +29,14 @@ public class LabOrder implements Serializable {
 
     public String getPatientId() {
         return patientId;
+    }
+
+    public String getCertificateNo() {
+        return certificateNo;
+    }
+
+    public void setCertificateNo(String certificateNo) {
+        this.certificateNo = certificateNo;
     }
 
     public void setPatientId(String patientId) {
@@ -87,6 +96,7 @@ public class LabOrder implements Serializable {
         return "LabOrder{" +
                 "id=" + id +
                 ", patientId='" + patientId + '\'' +
+                ", certificateNo='" + certificateNo + '\'' +
                 ", patientName='" + patientName + '\'' +
                 ", bedNo='" + bedNo + '\'' +
                 ", items='" + items + '\'' +

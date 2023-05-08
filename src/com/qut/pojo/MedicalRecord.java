@@ -10,6 +10,7 @@ public class MedicalRecord implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String patientId;
+    private String certificateNo;
     private String patientName;
     private String bedNo;
     private String diagnosis;
@@ -33,6 +34,14 @@ public class MedicalRecord implements Serializable {
 
     public void setPatientId(String patientId) {
         this.patientId = patientId;
+    }
+
+    public String getCertificateNo() {
+        return certificateNo;
+    }
+
+    public void setCertificateNo(String certificateNo) {
+        this.certificateNo = certificateNo;
     }
 
     public String getPatientName() {
@@ -104,6 +113,7 @@ public class MedicalRecord implements Serializable {
         return "MedicalRecord{" +
                 "id=" + id +
                 ", patientId='" + patientId + '\'' +
+                ", certificateNo='" + certificateNo + '\'' +
                 ", patientName='" + patientName + '\'' +
                 ", bedNo='" + bedNo + '\'' +
                 ", diagnosis='" + diagnosis + '\'' +

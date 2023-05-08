@@ -33,13 +33,14 @@ public class MedicalRecordController {
 
     @RequestMapping(value = "/recordSave.do", produces = "application/json;charset=utf-8")
     @ResponseBody
-    public String recordSave(@Param("patientId") String patientId, @Param("patientName") String patientName,
+    public String recordSave(@Param("patientId") String patientId, @Param("patientName") String patientName, @Param("cerificateNo") String cerificateNo,
                              @Param("bedNo") String bedNo, @Param("diagnosis") String diagnosis, @Param("treatmentPlan") String treatmentPlan,
                              @Param("medication") String medication, @Param("remarks") String remarks, HttpServletRequest request,
                              @Param("createTime") String createTime)
         throws ParseException, UnsupportedEncodingException{
         MedicalRecord medicalRecord = new MedicalRecord();
         medicalRecord.setPatientId(BaseUtils.toString(patientId));
+        medicalRecord.setCertificateNo(BaseUtils.toString(cerificateNo));
         medicalRecord.setPatientName(BaseUtils.toString(patientName));
         medicalRecord.setBedNo(BaseUtils.toString(bedNo));
         medicalRecord.setDiagnosis(BaseUtils.toString(diagnosis));
@@ -54,31 +55,11 @@ public class MedicalRecordController {
         return json.toString();
     }
 
-    @RequestMapping(value = "/recordQuery.do", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/recordQueryByPatientId.do", produces = "application/json;charset=utf-8")
     @ResponseBody
-    public String recordQuery(@Param(value = "patientId") String patientId, @Param("name") String patientName,
-                            @Param("wardNo") Integer wardNo, @Param("bedNo") Integer bedNo, @Param("start") String start,
-                            @Param("end") String end) throws ParseException {
-        PatientCode patientCode = new PatientCode();
-        if (patientId == null || "".equals(patientId)) {
-            patientId = null;
-        }
-        if (patientName == null || "".equals(patientName)) {
-            patientName = null;
-        }
-        // System.out.println("收到的patientName传参:"+patientName);
-        patientCode.setPatientId(patientId);
-        patientCode.setName(patientName);
-        patientCode.setWardNo(wardNo);
-        patientCode.setBedNo(bedNo);
-        patientCode.setStart(BaseUtils.toDate(start));
-        patientCode.setEnd(BaseUtils.toDate(end));
-        List<Map<String, Object>> list = medicalRecordService.medicalRecordQuery(patientCode);
-        log.info("查询患者" + patientName + patientId + "体征护理数据");
-        for (Map<String, Object> map : list) {
-            String str = map.get("measureTime").toString();
-            map.put("measureTime", str);
-        }
+    public String recordQueryByPatientId(HttpServletRequest request) throws  ParseException {
+        String certificateNo = BaseUtils.toString(request.getParameter("patientId"));
+        List<Map<String, Object>> list = medicalRecordService.medicalRecordQueryByPatientId(certificateNo);
         JSON json = JSONSerializer.toJSON(new JsonResult<List<Map<String, Object>>>(list));
         return json.toString();
     }

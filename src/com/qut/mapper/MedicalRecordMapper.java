@@ -22,4 +22,11 @@ public interface MedicalRecordMapper {
      * @param patientCode
      */
     List<Map<String,Object>> medicalRecordQuery(PatientCode patientCode);
+
+    /**
+     * 根据id查询电子病历
+     *
+     * @param certificateNo
+     */
+    List<Map<String, Object>> medicalRecordQueryByPatientId(String certificateNo);
 }

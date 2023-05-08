@@ -11,6 +11,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -72,6 +74,10 @@ public class UserController {
 				if (checkCodeOk) {
 					log.info("用户" + username + "尝试登录,验证码输入正确");
 					User user = userService.login(username, password);
+					// 保存userid和username在session中
+					HttpSession session = request.getSession();
+					session.setAttribute("certificateNo", user.getId());
+					session.setAttribute("userName", user.getName());
 					Cookie cookie = new Cookie("user",
 							user.getId() + "#" + URLEncoder.encode(user.getName(), "utf-8") + "#" + user.getDescribe());
 					cookie.setPath("/");

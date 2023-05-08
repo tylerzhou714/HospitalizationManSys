@@ -3,10 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qut.mapper.ConsultationMapper">
-    <!-- 保存病人体征信息 -->
+    <!-- 保存病人会诊信息 -->
     <insert id="consultationSave" parameterType="com.qut.pojo.Consultation">
         insert into
-            consultation(patient_id, patient_name, bed_no, consulting_doctors, diagnosis_suggestion, create_time, update_time)
-        values(#{patientId},#{patientName},#{bedNo},#{consultingDoctor},#{diagnosis}, #{createTime}, #{updateTime})
+            consultation(patient_id, certificateNo, patient_name, bed_no, consulting_doctors, diagnosis_suggestion, create_time, update_time)
+        values(#{patientId}, #{certificateNo}, #{patientName},#{bedNo},#{consultingDoctor},#{diagnosis}, #{createTime}, #{updateTime})
     </insert>
+    <!-- 根据病人id查询病人会诊信息-->
+    <select id="consultationQueryByCertificateNo" parameterType="String" resultType="map">
+        select * from consultation where certificateNo = #{certificateNo}
+    </select>
 </mapper>

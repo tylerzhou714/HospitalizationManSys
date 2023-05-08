@@ -72,6 +72,7 @@
 						<th class="num">序号</th>
 						<th class="time">住院号</th>
 						<th class="process">姓名</th>
+						<th class="process">身份证</th>
 						<th class="num">性别</th>
 						<th class="node">科室</th>
 						<th class="num">病房</th>

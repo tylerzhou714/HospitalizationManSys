@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @Service("consultationService")
 @Transactional(propagation = Propagation.NOT_SUPPORTED, readOnly = true)
@@ -22,5 +24,10 @@ public class ConsultationServiceImpl implements ConsultationService {
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, rollbackFor = Exception.class)
     public void consultationSave(Consultation consultation) {
         consultationMapper.consultationSave(consultation);
+    }
+
+    @Override
+    public List<Map<String, Object>> consultationQueryByCertificateNo(String certificateNo) {
+        return consultationMapper.consultationQueryByCertificateNo(certificateNo);
     }
 }

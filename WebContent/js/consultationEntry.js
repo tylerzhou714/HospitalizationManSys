@@ -21,6 +21,7 @@ $(function() {
             "display:none;");
         document.getElementById("patientName").setAttribute("readOnly", false);
         document.getElementById("bedNo").setAttribute("readOnly", false);
+        document.getElementById("doctorName").setAttribute("readOnly", false);
         $.ajax({// 通过身份证查询patient表的患者信息
             url : "patient/patientQueryBycerificateNo.do",
             data : {
@@ -35,10 +36,12 @@ $(function() {
                     var patientID = list[lastNameNum - 1].patientId;
                     var patientName = list[lastNameNum - 1].name;
                     var patientBedNo = list[lastNameNum - 1].bedNo;
+                    var doctorName = list[lastNameNum - 1].doctorName;
                     // alert(patientName);
                     $("#patientId").val(patientID);
                     $("#patientName").val(patientName);
                     $("#bedNo").val(patientBedNo);
+                    $("#doctorName").val(doctorName);
                 }
             }
         });

@@ -21,6 +21,9 @@ $(function() {
 		$("#tzsjcx").css("display", "");
 		$("#zyls").css("display", "");
 		$("#yyls").css("display", "");
+		$("#blcx").css("display", "");
+		$("#hzcx").css("display", "");
+		$("#jycx").css("display", "");
 		$("#guahaoguanli").css("display", "");
 		$("#djgh").css("display", "");
 		$("#ckyy").css("display", "");
@@ -143,6 +146,9 @@ $(function() {
 		$("#tzsjcx").css("display", "");
 		$("#zyls").css("display", "");
 		$("#yyls").css("display", "");
+		$("#blcx").css("display", "");
+		$("#hzcx").css("display", "");
+		$("#jycx").css("display", "");
 		$("#chuyuanguanli").css("display", "");
 		$("#cydj").css("display", "");
 		$("#cycx").css("display", "");

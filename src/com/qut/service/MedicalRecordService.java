@@ -17,4 +17,9 @@ public interface MedicalRecordService {
      */
     List<Map<String, Object>> medicalRecordQuery(PatientCode patientCode);
 
+    /**
+     * 根据病人id查询病历
+     */
+    List<Map<String, Object>> medicalRecordQueryByPatientId(String certificateNo);
+
 }

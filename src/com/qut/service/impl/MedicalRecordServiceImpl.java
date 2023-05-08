@@ -29,4 +29,10 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
     public List<Map<String, Object>> medicalRecordQuery(PatientCode patientCode) {
         return null;
     }
+
+    @Override
+    public List<Map<String, Object>> medicalRecordQueryByPatientId(String certificateNo) {
+        return medicalRecordMapper.medicalRecordQueryByPatientId(certificateNo);
+    }
+
 }

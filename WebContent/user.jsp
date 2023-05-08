@@ -170,6 +170,12 @@
 							id="zyls" style="display: none;">住院历史</a></li>
 						<li><a href="history_drug.jsp" target="iframe" id="yyls"
 							style="display: none;">用药历史</a></li>
+						<li><a href="record_query.jsp" target="iframe" id="blcx"
+							   style="display: none;">病历查询</a></li>
+						<li><a href="consultation_query.jsp" target="iframe" id="hzcx"
+							   style="display: none;">会诊结果查询</a></li>
+						<li><a href="labOrder_query.jsp" target="iframe" id="jycx"
+							   style="display: none;">检验单查询</a></li>
 					</ul></li>
 
 

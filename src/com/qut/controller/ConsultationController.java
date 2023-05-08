@@ -18,6 +18,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/consultation")
@@ -28,12 +30,13 @@ public class ConsultationController {
 
     @RequestMapping(value = "/consultationSave.do", produces = "application/json;charset=utf-8")
     @ResponseBody
-    public String recordSave(@Param("patientId") String patientId, @Param("patientName") String patientName,
+    public String recordSave(@Param("patientId") String patientId, @Param("patientName") String patientName, @Param("cerificateNo") String cerificateNo,
                              @Param("bedNo") String bedNo, @Param("consultingDoctors") String consultingDoctors, @Param("diagnosisSuggestion") String diagnosisSuggestion, HttpServletRequest request,
                              @Param("createTime") String createTime)
             throws ParseException, UnsupportedEncodingException {
         Consultation consultation = new Consultation();
         consultation.setPatientId(BaseUtils.toString(patientId));
+        consultation.setCertificateNo(BaseUtils.toString(cerificateNo));
         consultation.setPatientName(BaseUtils.toString(patientName));
         consultation.setBedNo(BaseUtils.toString(bedNo));
         consultation.setConsultingDoctor(BaseUtils.toString(consultingDoctors));
@@ -43,6 +46,15 @@ public class ConsultationController {
         consultationService.consultationSave(consultation);
         log.info("保存患者" + patientId + "会诊数据");
         JSON json = JSONSerializer.toJSON(new JsonResult<Consultation>(consultation));
+        return json.toString();
+    }
+
+    @RequestMapping(value = "/consultationQueryByCertificateNo.do", produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public String consultationQueryByCertificateNo(HttpServletRequest request) throws  ParseException {
+        String certificateNo = BaseUtils.toString(request.getParameter("userId"));
+        List<Map<String, Object>> list = consultationService.consultationQueryByCertificateNo(certificateNo);
+        JSON json = JSONSerializer.toJSON(new JsonResult<List<Map<String, Object>>>(list));
         return json.toString();
     }
 }

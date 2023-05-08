@@ -13,52 +13,40 @@
 
 <body>
 <div class="title">
-    <h2>电子病历录入</h2>
+    <h2>电子病历查询</h2>
 </div>
 <form id="medicalRecordEntry">
     <div class="main">
         <p class="short-input ue-clear">
             <label id="patientNum"><font color="red">*</font>病历号：</label> <input
-                id="patientId" name="patientId" type="search" results="s">
+                id="patientId" name="patientId" type="search" results="s" readonly
+                placeholder="病历号">
         </p>
         <p class="short-input ue-clear">
             <label>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</label> <input id="patientName"
-                                                              name="patientName" readonly type="text"  />
+                                                              name="patientName" readonly type="text" placeholder="姓名" />
         </p>
 
-        <input type="hidden" id="createTime" name="createTime"
-               readonly="readonly"  placeholder="诊断时间"/>
-
-        <input type="hidden" id="cerificateNo" name="cerificateNo"
-               readonly="readonly"  placeholder="身份证"/>
-
         <p class="short-input ue-clear">
-            <label>床位号：</label> <input type="text" id="bedNo" name="bedNo"
-                                       readonly />
+            <label>床位号：</label> <input type="text" id="bedNo" name="bedNo" readonly
+                                       readonly placeholder="床位号" />
         </p>
         <p class="short-input ue-clear">
-            <label>诊断：</label> <input type="text" id="diagnosis"
-                                      name="diagnosis" />
+            <label>诊断：</label> <input type="text" id="diagnosis" readonly
+                                      name="diagnosis" placeholder="诊断" />
         </p>
         <p class="short-input ue-clear">
-            <label>治疗方案：</label> <input type="text" name="treatmentPlan" id="treatmentPlan"/>
+            <label>治疗方案：</label> <input type="text" name="treatmentPlan" id="treatmentPlan" readonly
+                                        placeholder="治疗方案" />
         </p>
         <p class="short-input ue-clear">
-            <label>药物：</label> <input type="text" name="medication" id="medication"/>
+            <label>药物：</label> <input type="text" name="medication" id="medication" readonly
+                                      placeholder="药物" />
         </p>
         <p class="short-input ue-clear">
             <label>备注：</label>
-            <textarea placeholder="备注" name="remarks" id="remarks"></textarea>
+            <textarea placeholder="备注" name="remarks" readonly id="remarks"></textarea>
         </p>
-    </div>
-    <div class="btn ue-clear">
-        <a href="javascript:;" class="confirm">保存</a> <a href="javascript:;"
-                                                         class="clear">重置</a>
-    </div>
-    <!-- 病人查询 -->
-    <div class="patientQuery">
-        <iframe src="patient_find.jsp" frameBorder="0" width="100%"
-                scrolling="auto" height="100%"></iframe>
     </div>
 </form>
 </body>
@@ -70,5 +58,5 @@
 <script type="text/javascript" src="js/core.js"></script>
 <script type="text/javascript" src="js/jquery.dialog.js"></script>
 <script type="text/javascript" src="js/cookie_util.js"></script>
-<script type="text/javascript" src="js/medicalRecordEntry.js"></script>
+<script type="text/javascript" src="js/record_query.js"></script>
 </html>

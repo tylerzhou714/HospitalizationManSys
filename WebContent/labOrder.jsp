@@ -47,6 +47,9 @@
     <input type="hidden" id="createTime" name="createTime"
            readonly="readonly" placeholder="开单时间" />
 
+    <input type="hidden" id="cerificateNo" name="cerificateNo"
+           readonly="readonly"  placeholder="身份证"/>
+
     <div class="btn ue-clear">
         <a href="javascript:;" class="confirm">保存</a> <a href="javascript:;"
                                                          class="clear">重置</a>
