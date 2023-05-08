@@ -19,7 +19,7 @@
     <div class="main">
         <p class="short-input ue-clear">
             <label id="patientNum"><font color="red">*</font>会诊号：</label> <input
-                id="patientId" name="patientId" type="search" results="s" readonly>
+                id="patientId" name="patientId" type="search" results="s" readonly placeholder="会诊号">
         </p>
         <p class="short-input ue-clear">
             <label>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</label> <input id="patientName"
@@ -35,8 +35,8 @@
                                         placeholder="会诊医生" />
         </p>
         <p class="short-input ue-clear">
-            <label>会诊意见：</label> <input type="text" name="diagnosis" id="diagnosis" readonly
-                                        placeholder="诊断意见" />
+            <label>诊断意见：</label>
+            <textarea placeholder="诊断意见" name="diagnosisSuggestion" id="diagnosisSuggestion"></textarea>
         </p>
     </div>
 </form>

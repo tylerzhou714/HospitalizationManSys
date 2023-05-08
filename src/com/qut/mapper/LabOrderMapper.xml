@@ -10,4 +10,9 @@
         values(#{patientId},#{certificateNo},#{patientName},#{bedNo},#{items},#{DoctorName}, #{createTime}, #{updateTime})
     </insert>
 
+    <!-- 根据病人身份证查询病人检验单信息 -->
+    <select id="labOrderQueryByCertificateNo" parameterType="String" resultType="map">
+        SELECT * FROM laborder WHERE certificateNo = #{certificateNo} ORDER BY create_time DESC
+    </select>
+
 </mapper>

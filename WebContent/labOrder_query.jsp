@@ -14,7 +14,7 @@
 
 <body>
 <div class="title">
-    <h2>历史住院记录查询</h2>
+    <h2>检验单查询</h2>
 </div>
 <input style="display: none;" type="text" id="des" />
 <div class="query">
@@ -40,11 +40,10 @@
             <th class="num">序号</th>
             <th class="name">住院号</th>
             <th class="name">姓名</th>
-            <th class="node">性别</th>
-            <th class="node">主治医生</th>
-            <th class="node">身份证</th>
-            <th class="time">入院时间</th>
-            <th class="time">出院时间</th>
+            <th class="node">床号</th>
+            <th class="node">检查项目</th>
+            <th class="node">开单医生</th>
+            <th class="time">开单时间</th>
         </tr>
         </thead>
         <tbody id="show">

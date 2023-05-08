@@ -28,7 +28,7 @@ function getConsultation(patientId) {
                     $("#patientName").val(consultation.patient_name);
                     $("#bedNo").val(consultation.bed_no);
                     $("#doctorName").val(consultation.consulting_doctors);
-                    $("#diagnosis").val(consultation.diagnosis_suggestion);
+                    $("#diagnosisSuggestion").val(consultation.diagnosis_suggestion);
                 } else {
                     alert("未找到会诊信息");
                 }

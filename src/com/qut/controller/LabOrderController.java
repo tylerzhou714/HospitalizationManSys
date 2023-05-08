@@ -20,6 +20,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/LabOrder")
@@ -46,6 +48,15 @@ public class LabOrderController {
         labOrderService.labOrferSave(labOrder);
         log.info("保存患者" + patientId + "检查单数据");
         JSON json = JSONSerializer.toJSON(new JsonResult<LabOrder>(labOrder));
+        return json.toString();
+    }
+
+    @RequestMapping(value = "/labOrderQueryById.do", produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public String labOrderQueryById(HttpServletRequest request) throws  ParseException {
+        String certificateNo = BaseUtils.toString(request.getParameter("cerificateNo"));
+        List<Map<String, Object>> list = labOrderService.labOrderQueryByCertificateNo(certificateNo);
+        JSON json = JSONSerializer.toJSON(new JsonResult<List<Map<String, Object>>>(list));
         return json.toString();
     }
 }

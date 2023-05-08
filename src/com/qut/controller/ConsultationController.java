@@ -52,7 +52,7 @@ public class ConsultationController {
     @RequestMapping(value = "/consultationQueryByCertificateNo.do", produces = "application/json;charset=utf-8")
     @ResponseBody
     public String consultationQueryByCertificateNo(HttpServletRequest request) throws  ParseException {
-        String certificateNo = BaseUtils.toString(request.getParameter("userId"));
+        String certificateNo = BaseUtils.toString(request.getParameter("patientId"));
         List<Map<String, Object>> list = consultationService.consultationQueryByCertificateNo(certificateNo);
         JSON json = JSONSerializer.toJSON(new JsonResult<List<Map<String, Object>>>(list));
         return json.toString();

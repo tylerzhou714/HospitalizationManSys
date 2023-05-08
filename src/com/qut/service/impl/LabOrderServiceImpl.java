@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @Service("labOrderService")
 @Transactional(propagation = Propagation.NOT_SUPPORTED, readOnly = true)
@@ -20,5 +22,10 @@ public class LabOrderServiceImpl implements LabOrderService {
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, rollbackFor = Exception.class)
     public void labOrferSave(LabOrder labOrder) {
         labOrderMapper.labOrderSave(labOrder);
+    }
+
+    @Override
+    public List<Map<String, Object>> labOrderQueryByCertificateNo(String certificateNo) {
+        return labOrderMapper.labOrderQueryByCertificateNo(certificateNo);
     }
 }
